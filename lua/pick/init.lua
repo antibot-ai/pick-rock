@@ -1,9 +1,13 @@
 local function pick(source, fields)
   local result = {}
 
-  for _, field in ipairs(fields) do
-    if source[field] ~= nil then
-      result[field] = source[field]
+  for key, value in pairs(fields) do
+    if type(key) == 'number' then
+      key = value
+    end
+
+    if source[key] ~= nil then
+      result[key] = source[key]
     end
   end
 
